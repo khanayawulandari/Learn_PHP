@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <form id="form">
+        <fieldset>
+            <legend>Data Penting</legend>
+            <label for="nama">Nama Lengkap</label> <br>
+            <input type="text" name="nama" id="nama" placeholder="Masukkan nama"><br><br>
+
+            <label for="email">Email</label> <br>
+        <input type="email" name="email" id="email"><br><br>
+
+        <label for="password">Password</label> <br>
+        <input type="password" name="password" id="password"><br><br>
+        </fieldset>
+
+        <label for="number"">Umur</label><br>
+        <input type="number" name="umur" id="number"><br> <br>
+
+        <label for="date">Tanggal</label> <br>
+        <input type="date" name="tanggal" id="date"><br><br>
+
+        <label for="kelamin">Kelamin</label> <br>
+        <input type="radio" name="kelamin" id="laki">
+        <label for="laki">laki-laki</label>
+        <input type="radio" name="kelamin" id="perempuan">
+        <label for="perempuan">perempuan</label><br><br>
+
+        <label for="jurusan">Jurusan</label><br>
+        <select name="jurusan" id="jurusan">
+            <option value="RPL">Rekayasa Perangkat Lunak</option>
+            <option value="DKV">Desain Komunikasi Visual</option>
+            <option value="TPM">Teknik Permesinan</option>
+        </select> <br><br>
+
+        <label for="alamat">Alamat</label><br>
+        <textarea name="alamat" id="alamat" rows="5" cols="30"></textarea><br>
+        
+        <input type="submit">
+        <button type="reset">reset</button>
+    </form>
+
+    <div id="hasil"></div>
+
+    <script>
+        const form = document.getElementById('form');
+        const hasil = document.getElementById('hasil');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            let nama = document.getElementById('nama').value;
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+            let number = document.getElementById('number').value;
+            let date = document.getElementById('date').value;
+            let jurusan = document.getElementById('jurusan').value;
+
+
+            hasil.innerHTML = ' Nama : ' + nama;
+            hasil.innerHTML += '<br> Email :' + email;
+            hasil.innerHTML += '<br> Password :' + password;
+            hasil.innerHTML += '<br> Umur :' + number;
+            hasil.innerHTML += '<br> Tanggal :' + date;
+            hasil.innerHTML += '<br> Jurusan :' + jurusan;
+        })
+    </script>
+</body>
+</html>
