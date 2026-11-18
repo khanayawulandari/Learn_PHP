@@ -48,6 +48,10 @@ function absensi ($id, $status, $keterangan){
         return "Data Tidak Ditemukan";
     }
     $waktu = date("Y-m-d");
+    $query = "SELECT * FROM absensi WHERE siswa_id='$id' AND waktu='$waktu';";
+    $result = mysqli_query($conn,$query);
+    $result = mysqli_fetch_assoc($result);
+if(!$result){
     $query = "INSERT INTO absensi (siswa_id, 
     waktu,
     status,
@@ -60,12 +64,23 @@ function absensi ($id, $status, $keterangan){
     if(!$result){
         return "Gagal Melakukan Absensi";
     }
+}else{
+    $query = "UPDATE absensi SET
+    status='$status',
+    keterangan='$keterangan'
+    WHERE siswa_id='$id' AND waktu='$waktu'";
+    $result = mysqli_query($conn, $query);
+    if(!$result){
+        return "Gagal Melakukan Absensi";
+    }
+}
+    
     return "Absensi Berhasil";
 }
 if(isset($_GET['aksi']))
     if($_GET['aksi'] == 'absensi'){
         $id = $_GET['id'];
-        $Status = $_GET['status'];
+        $status = $_GET['status'];
         $keterangan = $_GET['keterangan'];
         $absensi = absensi($id, $status,$keterangan);
         header('Location:readabsensi.php?pesan=' . $absensi);

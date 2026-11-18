@@ -10,10 +10,10 @@ $data = ambilSiswaDanAbsensi($tanggal);
 <table border="1">
     <tr>
         <th>Id siswa</th>
-        <th>Nama siswa</th>
+        <th>Nama Siswa</th>
         <th>Nis Siswa</th>
         <th>Status Absensi</th>
-        <th>Keterangan absensi</th>
+        <th>Keterangan Absensi</th>
         <th>Aksi</th>
     </tr>
     <?php
